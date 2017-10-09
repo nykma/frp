@@ -5,8 +5,8 @@ ARG VERSION=0.13.0
 
 WORKDIR /
 
-# Comment this if you're not in China:
-RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories
+# Uncomment this if you're in China:
+# RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories
 RUN apk --no-cache add tar curl && \
     curl -SLo frp.tar.gz \
         "https://github.com/fatedier/frp/releases/download/v${VERSION}/frp_${VERSION}_linux_amd64.tar.gz" && \
