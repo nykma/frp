@@ -1,11 +1,7 @@
 version: '2'
 services:
   frpc:
-    build:
-      context: .
-      args:
-        VERSION: 0.13.0
-    image: nykma/frp:latest
+    image: nykma/frp:0.13.0
     restart: always
     volumes:
       - ./config:/frp/config
@@ -18,11 +14,7 @@ services:
       - "127.0.0.1:7400:7400" # admin_port
 
   frps:
-    build:
-      context: .
-      args:
-        VERSION: 0.13.0
-    image: nykma/frp:latest
+    image: nykma/frp:0.13.0
     restart: always
     volumes:
       - ./config:/frp/config
