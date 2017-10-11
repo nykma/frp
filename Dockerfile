@@ -39,4 +39,4 @@ EXPOSE 7400
 # [frps] dashboard_port
 EXPOSE 7500
 
-ENTRYPOINT ["/frp/frpc"]
+ENTRYPOINT ["/frp/frpc", "-c", "/frp/frpc.ini"]
