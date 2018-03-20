@@ -1,7 +1,7 @@
 version: '2'
 services:
   frpc:
-    image: nykma/frp:0.13.0
+    image: nykma/frp:0.16.0
     restart: always
     volumes:
       - ./config:/frp/config
@@ -9,7 +9,7 @@ services:
     extra_hosts:
 #     To visit host's port in a container,
 #     you should fill in the correct IP of your docker host.
-    - "dockerhost:192.168.0.64"
+      - "dockerhost:192.168.0.64"
 #   ports:
 #     - "127.0.0.1:7400:7400" # admin_port
 
