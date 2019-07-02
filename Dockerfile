@@ -1,12 +1,10 @@
-FROM alpine:latest
+FROM alpine:3.10
 MAINTAINER Nyk Ma <i@nyk.ma>
 
-ARG VERSION=0.25.3
+ARG VERSION=0.27.0
 
 WORKDIR /
 
-# Uncomment this if you're in China:
-# RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories
 RUN apk --no-cache add tar curl && \
     curl -SLo frp.tar.gz \
         "https://github.com/fatedier/frp/releases/download/v${VERSION}/frp_${VERSION}_linux_amd64.tar.gz" && \
