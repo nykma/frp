@@ -1,0 +1,19 @@
+name: Docker image with tags
+on:
+  push:
+    tags:
+      - "*"
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Build the Docker image
+      env:
+        DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+        DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
+      run: |
+        echo $DOCKERHUB_PASSWORD | docker login -u $DOCKERHUB_USERNAME --password-stdin
+        docker build . --file Dockerfile --tag nykma/frp:latest
+        TAG_NAME=$(echo $GITHUB_REF | sed 's/refs\/tags\///')
+        docker push nykma/frp:$TAG_NAME

@@ -1,7 +1,7 @@
 version: '2'
 services:
   frpc:
-    image: nykma/frp:0.27.0
+    image: nykma/frp:0.28.2
     build:
       context: .
       dockerfile: Dockerfile
@@ -17,7 +17,7 @@ services:
 #     - "127.0.0.1:7400:7400" # admin_port
 
   frps:
-    image: nykma/frp:0.27.0
+    image: nykma/frp:0.28.2
     build:
       context: .
       dockerfile: Dockerfile
