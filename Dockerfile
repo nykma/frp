@@ -28,6 +28,7 @@ EXPOSE 80
 EXPOSE 443
 # [frps] export port range
 EXPOSE 2000-3000
+EXPOSE 2000-3000/udp
 # bind_port
 EXPOSE 7000
 # kcp_bind_port
