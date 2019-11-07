@@ -1,10 +1,7 @@
 version: '2'
 services:
   frpc:
-    image: nykma/frp:0.28.2
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: nykma/frp:0.29.1
     restart: always
     volumes:
       - ./config:/frp/config
@@ -17,10 +14,7 @@ services:
 #     - "127.0.0.1:7400:7400" # admin_port
 
   frps:
-    image: nykma/frp:0.28.2
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: nykma/frp:0.29.1
     restart: always
     volumes:
       - ./config:/frp/config
