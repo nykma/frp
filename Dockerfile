@@ -1,7 +1,7 @@
 FROM alpine:3.10
 MAINTAINER Nyk Ma <i@nyk.ma>
 
-ARG VERSION=0.32.1
+ARG VERSION=0.33.0
 
 WORKDIR /
 
