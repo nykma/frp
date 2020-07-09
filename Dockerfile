@@ -1,11 +1,11 @@
-FROM alpine:3.10
+FROM alpine:3.12
 MAINTAINER Nyk Ma <i@nyk.ma>
 
 ARG VERSION=0.33.0
 
 WORKDIR /
 
-RUN apk --no-cache add tar curl && \
+RUN apk --no-cache add tar curl pwgen && \
     curl -SLo frp.tar.gz \
         "https://github.com/fatedier/frp/releases/download/v${VERSION}/frp_${VERSION}_linux_amd64.tar.gz" && \
     tar -vxf frp.tar.gz && \
@@ -38,4 +38,6 @@ EXPOSE 7400
 # [frps] dashboard_port
 EXPOSE 7500
 
-ENTRYPOINT ["/frp/frpc", "-c", "/frp/frpc.ini"]
+ENTRYPOINT ["/bin/sh"]
+
+CMD ["/frp/frpc", "-c", "/frp/frpc.ini"]

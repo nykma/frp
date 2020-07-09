@@ -1,7 +1,7 @@
 version: '2'
 services:
   frpc:
-    image: nykma/frp:0.33.0
+    image: nykma/frp:0.33.0-1
     restart: always
     volumes:
       - ./config:/frp/config
@@ -14,7 +14,7 @@ services:
 #     - "127.0.0.1:7400:7400" # admin_port
 
   frps:
-    image: nykma/frp:0.33.0
+    image: nykma/frp:0.33.0-1
     restart: always
     volumes:
       - ./config:/frp/config
@@ -28,7 +28,5 @@ services:
 #     # WARNING: container up/down will be VERY SLOW (even failed)
 #     # if too much ports opened here!
       - "20000-20020:2000-2020"
-    entrypoint:
-      - '/frp/frps'
-      - '-c'
-      - '/frp/frps.ini'
+    command:
+      - 'script/start-frps.sh'
